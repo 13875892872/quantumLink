@@ -1,0 +1,35 @@
+# 使用Node镜像构建前端
+FROM node:18-alpine3.18 AS web-build
+COPY ui ui
+RUN cd ui && \
+    npm install && \
+    npm run build && \
+    rm -rf ./node_modules
+
+# 使用之前创建的基础镜像
+FROM maxkb-base:latest
+
+# 工作目录
+WORKDIR /opt/maxkb/app
+
+# 复制应用代码
+COPY . /opt/maxkb/app
+RUN rm -rf /opt/maxkb/app/ui
+COPY --from=web-build ui /opt/maxkb/app/ui
+
+# 安装Python依赖
+RUN . /opt/py3/bin/activate && \
+    pip install poetry==1.8.5 --break-system-packages && \
+    poetry config virtualenvs.create false && \
+    if [ "$(uname -m)" = "x86_64" ]; then sed -i 's/^torch.*/torch = {version = "2.6.0+cpu", source = "pytorch"}/g' pyproject.toml; fi && \
+    poetry install && \
+    export MAXKB_CONFIG_TYPE=ENV && python3 /opt/maxkb/app/apps/manage.py compilemessages
+
+# 设置权限
+RUN find /opt/maxkb/app -mindepth 1 -not -name 'sandbox' -exec chmod 700 {} + && \
+    chown -R sandbox:root /opt/maxkb/app/sandbox && \
+    cp -r /opt/maxkb/model/base/hub /opt/maxkb/model/tokenizer || true
+
+# 运行容器
+ENTRYPOINT ["bash", "-c"]
+CMD [ "/usr/bin/run-maxkb.sh" ]
