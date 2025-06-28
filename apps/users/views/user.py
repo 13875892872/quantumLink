@@ -25,7 +25,7 @@ from common.util.common import encryption
 from smartdoc.settings import JWT_AUTH
 from users.serializers.user_serializers import RegisterSerializer, LoginSerializer, CheckCodeSerializer, \
     RePasswordSerializer, \
-    SendEmailSerializer, UserProfile, UserSerializer, UserManageSerializer, UserInstanceSerializer, SystemSerializer, \
+    SendEmailSerializer, UserProfile, UserSerializer, UserManageSerializer, UserInstanceSerializer,LoginSerializerOther, SystemSerializer, \
     SwitchLanguageSerializer, CaptchaSerializer
 from users.views.common import get_user_operation_object, get_re_password_details
 
@@ -201,6 +201,15 @@ class Login(APIView):
         token = login_request.get_user_token()
         token_cache.set(token, user, timeout=JWT_AUTH['JWT_EXPIRATION_DELTA'])
         return result.success(token)
+
+class OtherloginCheck(APIView):
+
+    @action(methods=['POST'], detail=False)
+    def post(self, request: Request):
+        login_request = LoginSerializerOther(data=request.data)
+        # 校验请求参数
+        user = login_request.is_valid(raise_exception=True)
+        return result.success(UserInstanceSerializer(user).data)
 
 
 class Register(APIView):

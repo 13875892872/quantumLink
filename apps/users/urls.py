@@ -10,6 +10,7 @@ urlpatterns = [
     path('user/language', views.SwitchUserLanguageView.as_view(), name='language'),
     path('user/list', views.User.Query.as_view()),
     path('user/login', views.Login.as_view(), name='login'),
+    path('user/OtherloginCheck', views.OtherloginCheck.as_view(), name='OtherloginCheck'),
     path('user/logout', views.Logout.as_view(), name='logout'),
     # path('user/register', views.Register.as_view(), name="register"),
     path("user/send_email", views.SendEmail.as_view(), name='send_email'),
