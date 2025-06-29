@@ -88,6 +88,32 @@ class SystemSerializer(ApiMixin, serializers.Serializer):
             }
         )
 
+class LoginSerializerOther(ApiMixin, serializers.Serializer):
+
+
+    id = serializers.CharField(required=True, error_messages=ErrMessage.char(_("id")))
+
+    def is_valid(self, *, raise_exception=False):
+        """
+        校验参数
+        :param raise_exception: Whether to throw an exception can only be True
+        :return: User information
+        """
+        super().is_valid(raise_exception=True)
+        id = self.data.get("id")
+        user = QuerySet(User).filter(Q(id=id)).first()
+        if user is None:
+            raise AppApiException(1005, "用户不存在!")
+        if not user.is_active:
+            raise AppApiException(1005, _("The user has been disabled, please contact the administrator!"))
+        return user
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
+
+
 
 class LoginSerializer(ApiMixin, serializers.Serializer):
     username = serializers.CharField(required=True,

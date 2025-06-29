@@ -1,5 +1,7 @@
 FROM ghcr.io/1panel-dev/maxkb-vector-model:v1.0.1 AS vector-model
 FROM node:18-alpine3.18 AS web-build
+# 设置npm镜像
+RUN npm config set registry https://registry.npmmirror.com
 COPY ui ui
 RUN cd ui && \
     npm install && \
@@ -26,6 +28,9 @@ RUN python3 -m venv /opt/py3 && \
     poetry config virtualenvs.create false && \
     . /opt/py3/bin/activate && \
     if [ "$(uname -m)" = "x86_64" ]; then sed -i 's/^torch.*/torch = {version = "2.6.0+cpu", source = "pytorch"}/g' pyproject.toml; fi && \
+    # 使用国内镜像加速
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
+    pip config set global.trusted-host mirrors.aliyun.com && \
     poetry install && \
     export MAXKB_CONFIG_TYPE=ENV && python3 /opt/maxkb/app/apps/manage.py compilemessages
 

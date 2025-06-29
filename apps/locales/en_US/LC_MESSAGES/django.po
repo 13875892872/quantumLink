@@ -1250,6 +1250,8 @@ msgstr "Test connection"
 msgid "Log in"
 msgstr ""
 
+msgid "OtherLog in"
+msgstr ""
 #: apps/xpack/views/auth.py:101 apps/xpack/views/auth.py:114
 #: apps/xpack/views/auth.py:130 apps/xpack/views/auth.py:146
 #: apps/xpack/views/auth.py:207 apps/xpack/views/auth.py:224

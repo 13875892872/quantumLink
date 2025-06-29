@@ -1269,6 +1269,8 @@ msgstr "测试连接"
 msgid "Log in"
 msgstr "登录"
 
+msgid "OtherLog in"
+msgstr "跳转登录"
 #: apps/xpack/views/auth.py:101 apps/xpack/views/auth.py:114
 #: apps/xpack/views/auth.py:130 apps/xpack/views/auth.py:146
 #: apps/xpack/views/auth.py:207 apps/xpack/views/auth.py:224
