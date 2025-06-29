@@ -262,8 +262,8 @@ function jumpAi(){
   const token = localStorage.getItem('token');
   if(token){
      const partBeforeColon = token.split(':')[0]; // 截取第一个冒号前的部分
-     window.location.href =  "http://IP:PORT/#/?ticket="+partBeforeColon;
-     //window.open("http://www.baidu.com"); // 跳转页面成功
+     //window.open(  "http://IP:PORT/#/?ticket="+partBeforeColon);
+     window.open("http://www.baidu.com"); // 跳转页面成功
   }
 }
 
@@ -271,6 +271,14 @@ function jumpHome(){
   debugger
   // 跳转管理后端
   router.push({ name: 'home' })
+}
+
+// 默认选中第一个菜单项（index="1"）
+const activeIndex = ref("1")
+
+const handleSelect = (index: string) => {
+  activeIndex.value = index
+  console.log("选中的菜单项:", index)
 }
 
 </script>
