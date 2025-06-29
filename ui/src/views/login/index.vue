@@ -1,7 +1,17 @@
 <template>
   <login-layout v-if="!loading" v-loading="loading">
-    <LoginContainer :subTitle="user.themeInfo?.slogan || $t('views.system.theme.defaultSlogan')">
-      <h2 class="mb-24" v-if="!showQrCodeTab">{{ loginMode || $t('views.login.title') }}</h2>
+    <LoginContainer>
+      <h2 class="mb-4 text-center" style="color: #60bff3;" v-if="!showQrCodeTab">{{ loginMode || $t('views.login.title') }}</h2>
+      <img
+         src="@/assets/logo/login_bt.png"
+         alt="Login Illustration"
+         style="
+             width: 80px;          /* 固定宽度 */
+             height: 15px;          /* 高度自动（保持比例） */
+             margin: 0px auto 10px ;     /* 上下边距 20px，左右自动（水平居中） */
+             display: block;        /* 让 margin: auto 生效 */
+         "
+      >
       <div v-if="!showQrCodeTab">
         <el-form
           class="login-form"
@@ -14,10 +24,15 @@
             <el-form-item prop="username">
               <el-input
                 size="large"
-                class="input-item"
+                class="input-item rounded-input"
                 v-model="loginForm.username"
+
                 :placeholder="$t('views.user.userForm.form.username.placeholder')"
               >
+                 <!-- 左侧插槽（prefix） -->
+              <template #prefix>
+                <img src="@/assets/iconsimg/userImg.png"  style="width: 10px; height: 10px;"/>
+              </template>
               </el-input>
             </el-form-item>
           </div>
@@ -26,11 +41,16 @@
               <el-input
                 type="password"
                 size="large"
-                class="input-item"
+                class="input-item rounded-input"
                 v-model="loginForm.password"
+
                 :placeholder="$t('views.user.userForm.form.password.placeholder')"
                 show-password
               >
+                 <!-- 左侧插槽（prefix） -->
+              <template #prefix>
+                <img src="@/assets/iconsimg/passwordImg.png"  style="width: 10px; height: 10px;"/>
+              </template>
               </el-input>
             </el-form-item>
           </div>
@@ -39,10 +59,13 @@
               <div class="flex-between w-full">
                 <el-input
                   size="large"
-                  class="input-item"
+                  class="input-item rounded-input"
                   v-model="loginForm.captcha"
                   :placeholder="$t('views.user.userForm.form.captcha.placeholder')"
                 >
+                <template #prefix>
+                  <img src="@/assets/iconsimg/verifyCodeImg.png"  style="width: 10px; height: 10px;"/>
+                </template>
                 </el-input>
 
                 <img :src="identifyCode" alt="" height="38" class="ml-8 cursor border border-r-4" @click="makeCode" />
@@ -51,15 +74,13 @@
           </div>
         </el-form>
 
-        <el-button size="large" type="primary" class="w-full" @click="login"
-          >{{ $t('views.login.buttons.login') }}
-        </el-button>
-        <div class="operate-container flex-between mt-12">
+        <div class="operate-container flex-between" style="margin-top: -10px">
           <!-- <el-button class="register" @click="router.push('/register')" link type="primary">
           注册
         </el-button> -->
           <el-button
             class="forgot-password"
+            style="color: #60bff3;"
             @click="router.push('/forgot_password')"
             link
             type="primary"
@@ -67,6 +88,12 @@
             {{ $t('views.login.forgotPassword') }}?
           </el-button>
         </div>
+        <el-button size="large" type="primary" class="w-full" @click="login" style="margin-top: 10px;background-color: #ffffff !important; /* 去掉背景色 */
+                           border-radius: 15px !important; /* 大圆角（或指定具体值，如 8px） */
+                           color: #000 !important; /* 字体黑色 */
+                           border: none !important; /* 可选：去掉边框 */"
+          >{{ $t('views.login.buttons.login') }}
+        </el-button>
       </div>
       <div v-if="showQrCodeTab">
         <QrCodeTab :tabs="orgOptions" />
@@ -430,4 +457,32 @@ onMounted(() => {
   height: 32px;
   text-align: center;
 }
+/* 覆盖输入框样式  自动填充有问题优化*/
+:deep(.el-input__inner:-webkit-autofill),
+:deep(.el-input__inner:-webkit-autofill:hover),
+:deep(.el-input__inner:-webkit-autofill:focus),
+:deep(.el-input__inner:-webkit-autofill:active) {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    transition: background-color 9999s ease-out !important;
+}
+
+:deep(.el-input__inner:-internal-autofill-selected),
+:deep(.el-input__inner:autofill) {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+/* 覆盖输入框整体样式 */
+:deep(.el-form-item .rounded-input.el-input .el-input__wrapper) {
+    background-color: #ffffff !important;
+    border-radius: 15px !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 12px !important;
+}
+
 </style>

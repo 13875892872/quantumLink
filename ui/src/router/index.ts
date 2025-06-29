@@ -25,7 +25,7 @@ router.beforeEach(
       return
     }
     const { user } = useStore()
-    const notAuthRouteNameList = ['register', 'login', 'forgot_password', 'reset_password', 'Chat']
+    const notAuthRouteNameList = ['register', 'login', 'forgot_password', 'reset_password', 'Chat','customerLogin']
 
     if (!notAuthRouteNameList.includes(to.name ? to.name.toString() : '')) {
       if (to.query && to.query.token) {
@@ -56,6 +56,7 @@ router.afterEach(() => {
 })
 
 export const getChildRouteListByPathAndName = (path: any, name?: RouteRecordName | any) => {
+  debugger
   return getChildRouteList(routes, path, name)
 }
 

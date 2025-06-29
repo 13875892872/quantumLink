@@ -4,6 +4,9 @@ import { Role } from '@/utils/permission/type'
 const modules: any = import.meta.glob('./modules/*.ts', { eager: true })
 const rolesRoutes: RouteRecordRaw[] = [...Object.keys(modules).map((key) => modules[key].default)]
 
+const modulesCustomer: any = import.meta.glob('./modulesCustomer/*.ts', { eager: true })
+const rolesRoutesCustomer: RouteRecordRaw[] = [...Object.keys(modulesCustomer).map((key) => modulesCustomer[key].default)]
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -31,6 +34,21 @@ export const routes: Array<RouteRecordRaw> = [
     name: 'login',
     component: () => import('@/views/login/index.vue')
   },
+  {
+    path: '/customerLogin',
+    name: 'customerLogin',
+    component: () => import('@/views/customerLogin/index.vue')
+  },
+  {
+    path: '/customerHome',
+    name: 'customerHome',
+    component: () => import('@/views/customerHome/index.vue')
+  },
+ /* {
+    path: '/customerHome',
+    name: 'customerHome',
+    component: () => import('@/views/customerHome/index.vue')
+  },*/
   {
     path: '/register',
     name: 'register',

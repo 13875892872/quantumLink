@@ -3,9 +3,9 @@
     <div class="login-container w-full h-full">
       <el-row class="container w-full h-full">
         <el-col :xs="0" :sm="0" :md="10" :lg="10" :xl="10" class="left-container">
-          <div class="login-image" :style="{ backgroundImage: `url(${loginImage})` }"></div>
+<!--          <div class="login-image" :style="{ backgroundImage: `url(${loginImage})` }"></div>-->
         </el-col>
-        <el-col :xs="24" :sm="24" :md="14" :lg="14" :xl="14" class="right-container flex-center">
+        <el-col :xs="24" :sm="24" :md="14" :lg="14" :xl="14" class="right-container flex-center-glf">
           <el-dropdown trigger="click" type="primary" class="lang" v-if="lang">
             <template #dropdown>
               <el-dropdown-menu style="width: 180px">
@@ -48,7 +48,7 @@ import { langList, localeConfigKey, getBrowserLang } from '@/locales/index'
 defineProps({
   lang: {
     type: Boolean,
-    default: true
+    default: false
   }
 })
 defineOptions({ name: 'LoginLayout' })
@@ -102,6 +102,42 @@ const loginImage = computed(() => {
       right: 20px;
       top: 20px;
     }
+  }
+  .flex-center-glf{
+     display: flex;
+     margin-top: 170px;
+     //align-items: center;
+     justify-content: center;
+  }
+
+  .container{
+     background-image:
+       // url('@/assets/logo/login_formbg.png'),
+        url('@/assets/logo/login_font.png'),
+        url('@/assets/logo/login.png');
+
+
+    background-position:
+       // right 230px top 170px, /* 图2右上角偏移 */
+        right 800px top 250px, /* 图2右上角偏移 */
+        center center; /* 图1居中 */
+
+
+    /* 分别控制每张图的尺寸 */
+    background-size:
+     //  423px 510px,   /* 图2宽度100px */
+       500px 300px,   /* 图2宽度100px */
+       cover;
+
+
+      // cover;          /* 图1覆盖容器 */
+      // contain;        /* 图3完整显示 */
+      background-repeat: no-repeat
+  }
+  .el-button el-button--primary el-button--large w-full {
+
+    --el-button-bg-color: #dee0e3;
+
   }
 }
 </style>

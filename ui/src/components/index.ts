@@ -3,6 +3,8 @@ import AppIcon from './icons/AppIcon.vue'
 import AppAvatar from './app-avatar/index.vue'
 import LoginLayout from './login-layout/index.vue'
 import LoginContainer from './login-container/index.vue'
+import LoginLayoutCustomer from './login-layout-customer/index.vue'
+import LoginContainerCustomer from './login-container-customer/index.vue'
 import LayoutContainer from './layout-container/index.vue'
 import TagsInput from './tags-input/index.vue'
 import CardBox from './card-box/index.vue'
@@ -31,6 +33,8 @@ export default {
     app.component(AppAvatar.name, AppAvatar)
     app.component(LoginLayout.name, LoginLayout)
     app.component(LoginContainer.name, LoginContainer)
+    app.component(LoginLayoutCustomer.name, LoginLayoutCustomer)
+    app.component(LoginContainerCustomer.name, LoginContainerCustomer)
     app.component(LayoutContainer.name, LayoutContainer)
     app.component(TagsInput.name, TagsInput)
     app.component(CardBox.name, CardBox)

@@ -4,7 +4,7 @@
       <TopMenu></TopMenu>
     </div>
     <div class="flex-center avatar">
-      <Avatar></Avatar>
+<!--      <Avatar></Avatar>-->
       <!-- <el-dropdown trigger="click" type="primary">
         <template #dropdown>
           <el-dropdown-menu>
@@ -51,7 +51,7 @@ function toUrl(url: string) {
   height: var(--app-header-height);
   box-sizing: border-box;
   padding: var(--app-header-padding);
-
+  margin-left: 35%  !important;
   .app-title-container {
     margin-right: 45px;
   }
