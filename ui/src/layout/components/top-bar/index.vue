@@ -3,8 +3,8 @@
     <div class="flex-center h-full">
       <TopMenu></TopMenu>
     </div>
-    <div class="flex-center avatar">
-<!--      <Avatar></Avatar>-->
+    <div class="flex-center avatar" >
+      <Avatar></Avatar>
       <!-- <el-dropdown trigger="click" type="primary">
         <template #dropdown>
           <el-dropdown-menu>

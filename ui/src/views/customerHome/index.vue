@@ -2,16 +2,21 @@
   <div class="app-container">
 
      <div class="menu-center-container">
-        <el-menu
-          mode="horizontal"
-          :default-active="activeIndex"
-          @select="handleSelect"
-          style="width: 20%;height: 100%;"
-          class="custom-menu"
-        >
-          <el-menu-item index="1">工作台</el-menu-item>
-          <el-menu-item index="2">系统设置</el-menu-item>
-       </el-menu>
+       <div style="width: 90%">
+          <el-menu
+            mode="horizontal"
+            :default-active="activeIndex"
+            @select="handleSelect"
+            style="width: 20%;height: 100%; margin-left: 45%"
+            class="custom-menu"
+          >
+            <el-menu-item index="1">工作台</el-menu-item>
+            <el-menu-item index="2">系统设置</el-menu-item>
+         </el-menu>
+       </div>
+       <div class="flex-center avatar">
+          <Avatar></Avatar>
+      </div>
     </div>
     <div  @click="jumpAi()" class="jump-link"
     style="position: absolute; right : 72.5% ;top : 32%;width: 19%; height: 19%; "></div>
@@ -41,6 +46,7 @@ import { isWorkFlow } from '@/utils/application'
 import { ValidType, ValidCount } from '@/enums/common'
 import {getBrowserLang, t} from '@/locales'
 import useStore from '@/stores'
+import Avatar from './avatar/index.vue'
 
 
 const elUploadRef = ref<any>()
@@ -285,6 +291,10 @@ const handleSelect = (index: string) => {
 <style lang="scss" scoped>
 /* 外层容器背景图片 */
 .menu-center-container {
+   display: flex;
+  justify-content: center; /* 水平居中 */
+  width: 100%;
+  height: 7%;
   background-color: #d6e2ff;
    background-image:
        // url('@/assets/logo/login.png'),
@@ -328,13 +338,13 @@ const handleSelect = (index: string) => {
   color: #409eff !important; /* 蓝色高亮 */
   border-bottom-color: #409eff !important;
 }
-
+/*
 .menu-center-container {
   display: flex;
-  justify-content: center; /* 水平居中 */
+  justify-content: center; !* 水平居中 *!
   width: 100%;
   height: 7%;
-}
+}*/
 
 /* 可选：调整菜单内边距或样式 */
 .el-menu--horizontal {
