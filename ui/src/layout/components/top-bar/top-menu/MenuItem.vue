@@ -37,22 +37,22 @@ const isActive = computed(() => {
   return (name == props.menu.name && path == props.menu.path) || meta?.activeMenu == props.menu.path
 })
 
-function  goToRoute(name ) {
-  debugger
+function  goToRoute(name: string | symbol | undefined ) {
   //  window.location.origin
   //window.location.href = '/ui/' + name;
   //router.push({ name: name })
   // function-lib
-  if('function_lib' == name){
+   const routeName = typeof name === 'symbol' ? name.toString() : (name || '');
+  if('function_lib' == routeName){
    // window.location.href = '/ui/function-lib'
     window.location.replace('/ui/function-lib');
    // this.$router.push('/function-lib');
-  }else if ('dataset' == name) {
+  }else if ('dataset' == routeName) {
     //window.location.href =  '/ui/dataset'
     window.location.replace('/ui/dataset');
    //  this.$router.push('/dataset');
   }else{
-    router.push({ path: `/${name}` });
+    router.push({ path: `/${routeName}` });
   }
 
 }
