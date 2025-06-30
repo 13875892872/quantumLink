@@ -1,25 +1,25 @@
 <template>
-  <div class="app_img"> </div>
-  <div class="clickable-area create" @click="openCreateDialog"></div>
-  <div class="clickable-area import" @click="triggerUpload">
-    <el-upload
-                  ref="elUploadRef"
-                  :file-list="[]"
-                  action="#"
-                  multiple
-                  :auto-upload="false"
-                  :show-file-list="false"
-                  :limit="1"
-                  :on-change="(file: any, fileList: any) => importApplication(file)"
-                  class="card-add-button"
-                >
-  <!--                  <div class="flex align-center cursor p-8">
-                      <AppIcon iconName="app-import" class="mr-8"></AppIcon>
-                      {{ $t('views.application.importApplication') }}
-                    </div>-->
-                </el-upload>
-  </div>
   <div class="application-list-container p-24" style="padding-top: 16px">
+    <div class="app_img"> </div>
+    <div class="clickable-area create" @click="openCreateDialog"></div>
+    <div class="clickable-area import" @click="triggerUpload">
+      <el-upload
+                    ref="elUploadRef"
+                    :file-list="[]"
+                    action="#"
+                    multiple
+                    :auto-upload="false"
+                    :show-file-list="false"
+                    :limit="1"
+                    :on-change="(file: any, fileList: any) => importApplication(file)"
+                    class="card-add-button"
+                  >
+    <!--                  <div class="flex align-center cursor p-8">
+                        <AppIcon iconName="app-import" class="mr-8"></AppIcon>
+                        {{ $t('views.application.importApplication') }}
+                      </div>-->
+                  </el-upload>
+    </div>
     <div class="flex-between mb-16">
       <div class="title-with-icon" style="margin-left: 1%" >
         <AppIcon iconName="app-all-menu-active" style="display: inline-block;"/>
@@ -516,41 +516,44 @@ onMounted(() => {
 
 
 .application-list-container{
-  margin-top: -150px;
+  //margin-top: -150px;
 }
 .app_img{
   width: 100%;
-  height: 35%;
+  height: 300px;
+  position: relative; /* 添加相对定位 */
   background-image:
        url('@/assets/homeicons/welcomeapp.png'),
        url('@/assets/homeicons/importapp.png'),
        url('@/assets/homeicons/createapp.png');
   background-position:
-        right 20% top 60%, /* 图2右上角偏移 */
-        right 95% top 90%, /* 图2右上角偏移 */
-        right 95% top 20%; /* 图1居中 */
+        right 10% top 60%, /* 图2右上角偏移 */
+        right 98% top 90%, /* 图2右上角偏移 */
+        right 98% top 20%; /* 图1居中 */
   background-size:
-       70% 82%,  /* 图2宽度100px */
+       80% 82%,  /* 图2宽度100px */
        15% 35%,  /* 图2宽度100px */
        15% 35%;
   background-repeat: no-repeat
 }
 .clickable-area.import {
  // background-color : red;
+  position: absolute; /* 改为绝对定位 */
   //right: 20%;
  // top: 100%;
   width: 15%;
   height: 11%;
-  transform: translate(28%, -225%);
+  transform: translate(8%, -120%);
 }
 
 .clickable-area.create {
  // background-color : red;
+  position: absolute; /* 改为绝对定位 */
  // right: 10%;
  // top: 10%;
   width: 15%;
   height: 11%;
-  transform: translate(28%, -270%);
+  transform: translate(8%, -260%);
 }
 
 

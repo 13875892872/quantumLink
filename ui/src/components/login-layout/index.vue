@@ -114,7 +114,7 @@ const loginImage = computed(() => {
      background-image:
        // url('@/assets/logo/login_formbg.png'),
         url('@/assets/logo/login_font.png'),
-        url('@/assets/logo/login.png');
+        url('@/assets/logo/login.jpg');
 
 
     background-position:
