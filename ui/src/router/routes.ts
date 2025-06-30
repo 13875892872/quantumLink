@@ -4,8 +4,10 @@ import { Role } from '@/utils/permission/type'
 const modules: any = import.meta.glob('./modules/*.ts', { eager: true })
 const rolesRoutes: RouteRecordRaw[] = [...Object.keys(modules).map((key) => modules[key].default)]
 
-const modulesCustomer: any = import.meta.glob('./modulesCustomer/*.ts', { eager: true })
+/*
+const modulesCustomer: any = import.meta.glob('./modulesCustomer/!*.ts', { eager: true })
 const rolesRoutesCustomer: RouteRecordRaw[] = [...Object.keys(modulesCustomer).map((key) => modulesCustomer[key].default)]
+*/
 
 export const routes: Array<RouteRecordRaw> = [
   {

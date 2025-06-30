@@ -1,7 +1,30 @@
 <template>
+  <div class="app_img"> </div>
+  <div class="clickable-area create" @click="openCreateDialog"></div>
+  <div class="clickable-area import" @click="triggerUpload">
+    <el-upload
+                  ref="elUploadRef"
+                  :file-list="[]"
+                  action="#"
+                  multiple
+                  :auto-upload="false"
+                  :show-file-list="false"
+                  :limit="1"
+                  :on-change="(file: any, fileList: any) => importApplication(file)"
+                  class="card-add-button"
+                >
+  <!--                  <div class="flex align-center cursor p-8">
+                      <AppIcon iconName="app-import" class="mr-8"></AppIcon>
+                      {{ $t('views.application.importApplication') }}
+                    </div>-->
+                </el-upload>
+  </div>
   <div class="application-list-container p-24" style="padding-top: 16px">
     <div class="flex-between mb-16">
-      <h4>{{ $t('views.application.title') }}</h4>
+      <div class="title-with-icon" style="margin-left: 1%" >
+        <AppIcon iconName="app-all-menu-active" style="display: inline-block;"/>
+        <h4 style="display: inline-block;margin-left: 5px">{{ $t('views.application.title') }}</h4>
+      </div>
       <div class="flex-between">
         <el-select
           v-model="selectUserId"
@@ -37,8 +60,8 @@
         :loading="loading"
       >
         <el-row :gutter="15">
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6" class="mb-16">
-            <el-card shadow="hover" class="application-card-add" style="--el-card-padding: 8px">
+<!--          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6" class="mb-16">
+            <el-card shadow="hover" class="application-card-add" style="&#45;&#45;el-card-padding: 8px">
               <div class="card-add-button flex align-center cursor p-8" @click="openCreateDialog">
                 <AppIcon iconName="app-add-application" class="mr-8"></AppIcon>
                 {{ $t('views.application.createApplication') }}
@@ -61,7 +84,7 @@
                 </div>
               </el-upload>
             </el-card>
-          </el-col>
+          </el-col>-->
           <el-col
             :xs="24"
             :sm="12"
@@ -75,7 +98,7 @@
             <CardBox
               :title="item.name"
               :description="item.desc"
-              class="application-card cursor"
+              class="application-card cursor isWorkFlow(item.type) ? 'workflow-card' : 'simple-card'"
               @click="router.push({ path: `/application/${item.id}/${item.type}/overview` })"
             >
               <template #icon>
@@ -121,20 +144,22 @@
                     placement="top"
                   >
                     <el-button text @click.stop @click="getAccessToken(item.id)">
-                      <AppIcon iconName="app-view"></AppIcon>
+                      <AppIcon iconName="app-video-play"></AppIcon>
                     </el-button>
                   </el-tooltip>
                   <el-divider direction="vertical" />
                   <el-tooltip effect="dark" :content="$t('common.setting')" placement="top">
                     <el-button text @click.stop="settingApplication(item)">
-                      <AppIcon iconName="Setting"></AppIcon>
+<!--                      <AppIcon iconName="app-quote"></AppIcon>-->
+                      <el-icon><Operation /></el-icon>  <!--用elementui图标-->
                     </el-button>
                   </el-tooltip>
                   <el-divider direction="vertical" />
                   <span @click.stop>
                     <el-dropdown trigger="click">
                       <el-button text @click.stop>
-                        <el-icon><MoreFilled /></el-icon>
+<!--                        <el-icon><MoreFilled /></el-icon>-->
+                          <AppIcon iconName="app-all-menu"></AppIcon>
                       </el-button>
                       <template #dropdown>
                         <el-dropdown-menu>
@@ -391,6 +416,19 @@ function getUserList() {
   })
 }
 
+function  triggerUpload() {
+  if (elUploadRef.value) {
+    console.log(elUploadRef.value); // 检查是否有 handleClick 方法
+    if (elUploadRef.value.handleClick) {
+      elUploadRef.value.handleClick(); // 调用内置方法
+    } else {
+      // 备用方案：手动触发 input 点击
+      const input = elUploadRef.value.$el.querySelector('input[type="file"]');
+      if (input) input.click();
+    }
+  }
+}
+
 onMounted(() => {
   getUserList()
 })
@@ -441,4 +479,79 @@ onMounted(() => {
     margin-right: 26px;
   }
 }
+/* 基础卡片样式 */
+/*.application-card {
+  position: relative;
+  overflow: hidden; !* 防止背景溢出 *!
+  transition: all 0.3s ease;
+}
+
+!* 工作流卡片（黄色背景） *!
+.workflow-card {
+  background:
+    linear-gradient(135deg, rgba(255, 249, 230, 0.5) 0%, rgba(255, 249, 230, 0.8) 100%),
+    url('@/assets/homeicons/appliction-gj.png') no-repeat right bottom;
+  background-size: cover;
+  border-left: 4px solid #e6a23c;
+}
+
+!* 简单卡片（蓝色背景） *!
+.simple-card {
+  background:
+    linear-gradient(135deg, rgba(230, 247, 255, 0.5) 0%, rgba(230, 247, 255, 0.8) 100%),
+    url('@/assets/homeicons/appliction-pt.png') no-repeat right bottom;
+  background-size: cover;
+  border-left: 4px solid #409eff;
+}
+
+!* 确保内容可读性 *!
+.workflow-card .card-title,
+.workflow-card .card-description,
+.simple-card .card-title,
+.simple-card .card-description {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}*/
+/* 动态背景图片结束 */
+
+
+
+.application-list-container{
+  margin-top: -150px;
+}
+.app_img{
+  width: 100%;
+  height: 35%;
+  background-image:
+       url('@/assets/homeicons/welcomeapp.png'),
+       url('@/assets/homeicons/importapp.png'),
+       url('@/assets/homeicons/createapp.png');
+  background-position:
+        right 20% top 60%, /* 图2右上角偏移 */
+        right 95% top 90%, /* 图2右上角偏移 */
+        right 95% top 20%; /* 图1居中 */
+  background-size:
+       70% 82%,  /* 图2宽度100px */
+       15% 35%,  /* 图2宽度100px */
+       15% 35%;
+  background-repeat: no-repeat
+}
+.clickable-area.import {
+ // background-color : red;
+  //right: 20%;
+ // top: 100%;
+  width: 15%;
+  height: 11%;
+  transform: translate(28%, -225%);
+}
+
+.clickable-area.create {
+ // background-color : red;
+ // right: 10%;
+ // top: 10%;
+  width: 15%;
+  height: 11%;
+  transform: translate(28%, -270%);
+}
+
+
 </style>

@@ -3,7 +3,7 @@
     <LoginContainer>
       <h2 class="mb-4 text-center" style="color: #60bff3;" v-if="!showQrCodeTab">{{ loginMode || $t('views.login.title') }}</h2>
       <img
-         src="@/assets/logo/login_bt.png"
+         src="@/assets/logo/login-bt1.png"
          alt="Login Illustration"
          style="
              width: 80px;          /* 固定宽度 */

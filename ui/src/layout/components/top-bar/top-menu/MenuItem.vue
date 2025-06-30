@@ -2,7 +2,7 @@
   <div
     class="menu-item-container flex-center h-full"
     :class="isActive ? 'active' : ''"
-    @click="router.push({ name: menu.name })"
+    @click="goToRoute(menu.name)"
   >
 
 <!--      <AppIcon :iconName="menu.meta ? (menu.meta.icon as string) : '@/assets/homeicons/appliction-x.png'" />-->
@@ -36,6 +36,26 @@ const isActive = computed(() => {
   const { name, path, meta } = route
   return (name == props.menu.name && path == props.menu.path) || meta?.activeMenu == props.menu.path
 })
+
+function  goToRoute(name ) {
+  debugger
+  //  window.location.origin
+  //window.location.href = '/ui/' + name;
+  //router.push({ name: name })
+  // function-lib
+  if('function_lib' == name){
+   // window.location.href = '/ui/function-lib'
+    window.location.replace('/ui/function-lib');
+   // this.$router.push('/function-lib');
+  }else if ('dataset' == name) {
+    //window.location.href =  '/ui/dataset'
+    window.location.replace('/ui/dataset');
+   //  this.$router.push('/dataset');
+  }else{
+    router.push({ path: `/${name}` });
+  }
+
+}
 </script>
 <style lang="scss" scoped>
 .menu-item-container {

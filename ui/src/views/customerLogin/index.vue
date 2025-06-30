@@ -1,7 +1,7 @@
 <template>
   <LoginLayoutCustomer v-if="!loading" v-loading="loading">
     <LoginContainerCustomer>
-      <h2 class="mb-4 text-center" style="color: #60bff3;" v-if="!showQrCodeTab">{{ loginMode || $t('views.login.title') }}</h2>
+      <h2 class="mb-4 text-center" style="color: #12186B;" v-if="!showQrCodeTab">{{ loginMode || $t('views.login.title') }}</h2>
       <img
          src="@/assets/logo/login_bt.png"
          alt="Login Illustration"

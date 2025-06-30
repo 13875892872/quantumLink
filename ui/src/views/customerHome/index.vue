@@ -6,7 +6,7 @@
           mode="horizontal"
           :default-active="activeIndex"
           @select="handleSelect"
-          style="width: 300px"
+          style="width: 20%;height: 100%;"
           class="custom-menu"
         >
           <el-menu-item index="1">工作台</el-menu-item>
@@ -17,14 +17,14 @@
     style="position: absolute; right : 72.5% ;top : 32%;width: 19%; height: 19%; "></div>
      <div  @click="jumpHome()" class="jump-link"
     style="position: absolute; right : 52.5% ;top : 32%;width: 19%; height: 19%; " ></div>
-    <div style="transform: translateX(165px); margin-top: 19%">
-      <div style="width: 150px; height: 50px;">
+    <div style="transform: translateX(10%); margin-top: 19%">
+      <div style="width: 50%; height: 50%">
         <div style="font-size: 20px;font-weight: bold"> 智能公文写作</div>
         <div style="font-size: 10px"> 智能公文辅助写作平台</div>
       </div>
     </div>
-    <div style="transform: translateX(495px); margin-top: -3%">
-      <div style="width: 150px; height: 50px;">
+    <div style="transform: translateX(30%); margin-top: -3%">
+      <div style="width: 50%; height: 50%;">
         <div style="font-size: 20px;font-weight: bold"> 知识库</div>
         <div style="font-size: 10px"> 智能知识库</div>
       </div>
@@ -262,8 +262,8 @@ function jumpAi(){
   const token = localStorage.getItem('token');
   if(token){
      const partBeforeColon = token.split(':')[0]; // 截取第一个冒号前的部分
-     //window.open(  "http://IP:PORT/#/?ticket="+partBeforeColon);
-     window.open("http://www.baidu.com"); // 跳转页面成功
+     window.open(  "http://183.222.164.36:60180/#/?ticket="+partBeforeColon);
+    // window.open("http://www.baidu.com"); // 跳转页面成功
   }
 }
 
@@ -333,6 +333,7 @@ const handleSelect = (index: string) => {
   display: flex;
   justify-content: center; /* 水平居中 */
   width: 100%;
+  height: 7%;
 }
 
 /* 可选：调整菜单内边距或样式 */
