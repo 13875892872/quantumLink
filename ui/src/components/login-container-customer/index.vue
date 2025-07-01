@@ -23,19 +23,19 @@ defineProps({
 <style lang="scss" scoped>
 .login-form-container-c {
   position: relative;
-  width: 39%;
-  height: 75%;
+  width: 380px;
+  //height: 75%;
   //border-radius: 100px; /* 确保容器本身也有圆角 */
   .login-title {
-    margin-bottom: 9%;
+    margin-bottom: 32px;
     .sub-title {
       font-size: 16px;
     }
   }
   .login-card {
-    height: 59.5%;
-    border-radius: 5%;
-    padding: 3%;
+    //height: 59.5%;
+    border-radius: 40px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0); /* 半透明的白色背景 （设置表单颜色）*/
   }
 }
@@ -43,16 +43,16 @@ defineProps({
 .login-form-container-c::before {
   content: '';
   position: absolute;
-  top: 0%; /* 调整位置 */
-  left: -10%;
-  width: 120%; /* 改为 100% 填充容器 */
-  height: 82%;
-  background-image: url('@/assets/logo/login_formbg.png'); /* 尝试 ~@/ 或 @/ */
+  top: 1px; /* 调整位置 */
+  left: 0;
+  width: 100%; /* 改为 100% 填充容器 */
+  height: 486px;
+  background-image: url('@/assets/customerlogo/login_formbg.png'); /* 尝试 ~@/ 或 @/ */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0; /* 确保在内容下方 */
-  border-radius: 5%; /* 与 .login-card 的圆角一致 */
+  border-radius: 40px; /* 与 .login-card 的圆角一致 */
   pointer-events: none; /* 可选：防止伪元素阻挡交互 */
   //opacity: 0.5; /* 可选：调整透明度 */
  // opacity: 0.5; /* 设置透明度，0.5表示50%透明度 */
@@ -60,6 +60,6 @@ defineProps({
 .login-form-container-c .login-card {
   position: relative; /* 确保内容在伪元素上方 */
   z-index: 1; /* 确保内容在伪元素上方 */
-  border-radius: 5%;
+  border-radius: 40px;
 }
 </style>
