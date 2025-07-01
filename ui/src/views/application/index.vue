@@ -94,11 +94,13 @@
             v-for="(item, index) in applicationList"
             :key="index"
             class="mb-16"
+
           >
             <CardBox
               :title="item.name"
               :description="item.desc"
-              class="application-card cursor isWorkFlow(item.type) ? 'workflow-card' : 'simple-card'"
+              class="application-card cursor"
+              :class="isWorkFlow(item.type) ? 'workflow-card' : 'simple-card'"
               @click="router.push({ path: `/application/${item.id}/${item.type}/overview` })"
             >
               <template #icon>
@@ -127,14 +129,14 @@
                   </auto-tooltip>
                 </el-text>
               </template>
-              <div class="status-tag">
+<!--              <div class="status-tag">
                 <el-tag type="warning" v-if="isWorkFlow(item.type)" style="height: 22px">
                   {{ $t('views.application.workflow') }}
                 </el-tag>
                 <el-tag class="blue-tag" v-else style="height: 22px">
                   {{ $t('views.application.simple') }}
                 </el-tag>
-              </div>
+              </div>-->
 
               <template #footer>
                 <div class="footer-content">
@@ -463,11 +465,19 @@ onMounted(() => {
 }
 
 .application-card {
+  border: none !important; /* 移除所有边框 */
+  outline: none !important; /* 禁用焦点轮廓 */
   .status-tag {
     position: absolute;
     right: 16px;
     top: 15px;
   }
+}
+.application-card:hover,
+.application-card:focus,
+.aapplication-card:active {
+  outline: none !important;
+  box-shadow: none !important; /* 禁用可能的阴影效果 */
 }
 
 .dropdown-custom-switch {
@@ -480,32 +490,40 @@ onMounted(() => {
   }
 }
 /* 基础卡片样式 */
-/*.application-card {
+.application-card {
   position: relative;
-  overflow: hidden; !* 防止背景溢出 *!
+  overflow: hidden; /* 防止背景溢出 */
   transition: all 0.3s ease;
 }
 
-!* 工作流卡片（黄色背景） *!
+/* 工作流卡片（黄色背景） */
 .workflow-card {
-  background:
-    linear-gradient(135deg, rgba(255, 249, 230, 0.5) 0%, rgba(255, 249, 230, 0.8) 100%),
-    url('@/assets/homeicons/appliction-gj.png') no-repeat right bottom;
+  background: url('@/assets/homeicons/appliction-gj.png') no-repeat right bottom;
   background-size: cover;
-  border-left: 4px solid #e6a23c;
 }
 
-!* 简单卡片（蓝色背景） *!
+/* 简单卡片（蓝色背景） */
 .simple-card {
   background:
-    linear-gradient(135deg, rgba(230, 247, 255, 0.5) 0%, rgba(230, 247, 255, 0.8) 100%),
     url('@/assets/homeicons/appliction-pt.png') no-repeat right bottom;
   background-size: cover;
-  border-left: 4px solid #409eff;
 }
 
-!* 确保内容可读性 *!
-.workflow-card .card-title,
+/*.workflow-card,
+.simple-card {
+  position: relative; !* 确保背景定位基于元素本身 *!
+  overflow: hidden; !* 防止放大时图片溢出 *!
+  transition: background-size 0.3s ease; !* 平滑过渡效果 *!
+}
+
+!* 悬停时放大背景图片（保持右下角定位） *!
+.workflow-card:hover,
+.simple-card:hover {
+  background-size: 100%; !* 轻微放大（可根据需求调整） *!
+}*/
+
+/* 确保内容可读性 */
+/*.workflow-card .card-title,
 .workflow-card .card-description,
 .simple-card .card-title,
 .simple-card .card-description {

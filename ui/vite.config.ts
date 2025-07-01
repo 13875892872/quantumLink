@@ -12,17 +12,18 @@ export default defineConfig(({ mode }) => {
   const prefix = process.env.VITE_DYNAMIC_PREFIX || ENV.VITE_BASE_PATH
   const proxyConf: Record<string, string | ProxyOptions> = {}
   proxyConf['/api'] = {
-    target: 'http://127.0.0.1:8080',
+    target: 'http://140.143.147.5:8080',
     changeOrigin: true,
     rewrite: (path) => path.replace(ENV.VITE_BASE_PATH, '/')
   }
   proxyConf['/doc'] = {
-    target: 'http://127.0.0.1:8080',
+    target: 'http://140.143.147.5:8080',
     changeOrigin: true,
     rewrite: (path) => path.replace(ENV.VITE_BASE_PATH, '/')
   }
   proxyConf['/static'] = {
-    target: 'http://127.0.0.1:8080',
+   // target: 'http://183.222.164.36:8686',
+    target: 'http://140.143.147.5:8080',
     changeOrigin: true,
     rewrite: (path) => path.replace(ENV.VITE_BASE_PATH, '/')
   }
