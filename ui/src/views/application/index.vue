@@ -534,11 +534,11 @@ onMounted(() => {
 
 
 .application-list-container{
-  //margin-top: -150px;
+  height: 95%;
 }
 .app_img{
   width: 100%;
-  height: 300px;
+  height: 35%;
   position: relative; /* 添加相对定位 */
   background-image:
        url('@/assets/homeicons/welcomeapp.png'),
