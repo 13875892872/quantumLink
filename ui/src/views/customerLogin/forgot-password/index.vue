@@ -1,11 +1,11 @@
 <template>
-  <login-layout v-if="!loading" v-loading="loading || sendLoading">
-    <LoginContainer
+  <LoginLayoutCustomer v-if="!loading" v-loading="loading || sendLoading">
+    <LoginContainerCustomer
       :subTitle="
         user.themeInfo?.slogan ? user.themeInfo?.slogan : $t('views.system.theme.defaultSlogan')
       "
     >
-      <h2 class="mb-24">{{ $t('views.customerLogin.forgotPassword') }}</h2>
+      <h2 class="mb-24" style="margin-top: 20px">{{ $t('views.login.forgotPassword') }}</h2>
       <el-form
         class="register-form"
         ref="resetPasswordFormRef"
@@ -30,7 +30,7 @@
                 size="large"
                 class="code-input"
                 v-model="CheckEmailForm.code"
-                :placeholder="$t('views.customerLogin.verificationCode.placeholder')"
+                :placeholder="$t('views.login.verificationCode.placeholder')"
               >
               </el-input>
 
@@ -43,8 +43,8 @@
               >
                 {{
                   isDisabled
-                    ? `${$t('views.customerLogin.verificationCode.resend')}（${time}s）`
-                    : $t('views.customerLogin.verificationCode.getVerificationCode')
+                    ? `${$t('views.login.verificationCode.resend')}（${time}s）`
+                    : $t('views.login.verificationCode.getVerificationCode')
                 }}
               </el-button>
             </div>
@@ -52,7 +52,7 @@
         </div>
       </el-form>
       <el-button size="large" type="primary" class="w-full" @click="checkCode"
-        >{{ $t('views.customerLogin.buttons.checkCode') }}
+        >{{ $t('views.login.buttons.checkCode') }}
       </el-button>
       <div class="operate-container mt-12">
         <el-button
@@ -62,11 +62,11 @@
           type="primary"
           icon="ArrowLeft"
         >
-          {{ $t('views.customerLogin.buttons.backLogin') }}
+          {{ $t('views.login.buttons.backLogin') }}
         </el-button>
       </div>
-    </LoginContainer>
-  </login-layout>
+    </LoginContainerCustomer>
+  </LoginLayoutCustomer>
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
@@ -126,7 +126,7 @@ const sendEmail = () => {
   resetPasswordFormRef.value?.validateField('email', (v: boolean) => {
     if (v) {
       UserApi.sendEmit(CheckEmailForm.value.email, 'reset_password', sendLoading).then(() => {
-        MsgSuccess(t('views.customerLogin.verificationCode.successMessage'))
+        MsgSuccess(t('views.login.verificationCode.successMessage'))
         isDisabled.value = true
         handleTimeChange()
       })
@@ -151,4 +151,10 @@ onBeforeMount(() => {
   })
 })
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.register-form{
+  height: 165px;
+}
+
+</style>

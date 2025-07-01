@@ -81,7 +81,7 @@
           <el-button
             class="forgot-password"
             style="color: #60bff3;"
-            @click="router.push('/forgot_password')"
+            @click="router.push('/forgot_password_customer')"
             link
             type="primary"
           >

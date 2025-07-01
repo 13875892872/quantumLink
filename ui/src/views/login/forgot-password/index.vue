@@ -5,7 +5,7 @@
         user.themeInfo?.slogan ? user.themeInfo?.slogan : $t('views.system.theme.defaultSlogan')
       "
     >
-      <h2 class="mb-24">{{ $t('views.login.forgotPassword') }}</h2>
+      <h2 class="mb-24" style="margin-top: 30px">{{ $t('views.login.forgotPassword') }}</h2>
       <el-form
         class="register-form"
         ref="resetPasswordFormRef"
@@ -151,4 +151,10 @@ onBeforeMount(() => {
   })
 })
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.register-form{
+  height: 165px;
+}
+
+</style>
