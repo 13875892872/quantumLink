@@ -35,7 +35,6 @@ router.beforeEach(
         console.log(token)
         console.log(to.name)
       if (!token) {
-          console.log(to.name+"1")
         if(to.name === 'customerHome'){
              next({
                path: '/customerLogin'

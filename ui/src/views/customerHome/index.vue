@@ -276,7 +276,7 @@ function jumpAi(){
 function jumpHome(){
   debugger
   // 跳转管理后端
-  router.push({ name: 'home' })
+  router.push({ name: 'dataset-index' })
 }
 
 // 默认选中第一个菜单项（index="1"）
