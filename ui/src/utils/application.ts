@@ -1,4 +1,4 @@
-export const defaultIcon = '/ui/favicon.ico'
+export const defaultIcon = '/ui/favicon.jpg'
 
 // 是否显示字母 / icon
 export function isAppIcon(url: String | undefined) {

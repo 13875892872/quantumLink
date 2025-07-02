@@ -172,7 +172,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='functionlib',
             name='icon',
-            field=models.CharField(default='/ui/favicon.ico', max_length=256,
+            field=models.CharField(default='/ui/favicon.jpg', max_length=256,
                                    verbose_name='函数库icon'),
         ),
         migrations.AddField(

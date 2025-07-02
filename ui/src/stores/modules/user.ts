@@ -122,7 +122,7 @@ const useUserStore = defineStore({
         // window.document.title = this.themeInfo['title'] || 'MaxKB'
         // const link = document.querySelector('link[rel="icon"]') as any
         // if (link) {
-        //   link['href'] = this.themeInfo['icon'] || '/favicon.ico'
+        //   link['href'] = this.themeInfo['icon'] || '/favicon.jpg'
         // }
       })
     },

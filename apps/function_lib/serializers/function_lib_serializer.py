@@ -276,7 +276,7 @@ class FunctionLibSerializer(serializers.Serializer):
             if with_valid:
                 self.is_valid(raise_exception=True)
             fun = QuerySet(FunctionLib).filter(id=self.data.get('id')).first()
-            if fun.template_id is None and fun.icon != '/ui/favicon.ico':
+            if fun.template_id is None and fun.icon != '/ui/favicon.jpg':
                 QuerySet(File).filter(id=fun.icon.split('/')[-1]).delete()
             QuerySet(FunctionLib).filter(id=self.data.get('id')).delete()
             return True
@@ -377,10 +377,10 @@ class FunctionLibSerializer(serializers.Serializer):
             if functionLib is None:
                 raise AppApiException(500, _('Function does not exist'))
             # 删除旧的图片
-            if functionLib.icon != '/ui/favicon.ico':
+            if functionLib.icon != '/ui/favicon.jpg':
                 QuerySet(File).filter(id=functionLib.icon.split('/')[-1]).delete()
             if self.data.get('image') is None:
-                functionLib.icon = '/ui/favicon.ico'
+                functionLib.icon = '/ui/favicon.jpg'
             else:
                 meta = {
                     'debug': False

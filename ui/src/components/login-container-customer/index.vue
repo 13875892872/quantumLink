@@ -23,7 +23,7 @@ defineProps({
 <style lang="scss" scoped>
 .login-form-container-c {
   position: relative;
-  width: 380px;
+  width: 420px;
   //height: 75%;
   //border-radius: 100px; /* 确保容器本身也有圆角 */
   .login-title {
@@ -36,17 +36,21 @@ defineProps({
     //height: 59.5%;
     border-radius: 40px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0); /* 半透明的白色背景 （设置表单颜色）*/
+    background-color: transparent !important; /* 强制透明 */
+    background: transparent !important; /* 覆盖所有背景属性 */
+    border: none !important; /* 移除边框 */
+    box-shadow: none !important; /* 移除阴影 */
+    outline: none !important; /* 移除轮廓线 */
   }
 }
 
 .login-form-container-c::before {
   content: '';
   position: absolute;
-  top: 1px; /* 调整位置 */
+  top: 4px; /* 调整位置 */
   left: 0;
   width: 100%; /* 改为 100% 填充容器 */
-  height: 486px;
+  height: 520px;
   background-image: url('@/assets/customerlogo/login_formbg.png'); /* 尝试 ~@/ 或 @/ */
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,5 +65,6 @@ defineProps({
   position: relative; /* 确保内容在伪元素上方 */
   z-index: 1; /* 确保内容在伪元素上方 */
   border-radius: 40px;
+  height: 380px;
 }
 </style>

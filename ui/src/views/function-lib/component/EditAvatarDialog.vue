@@ -106,7 +106,7 @@ const onChange = (file: any) => {
 
 function submit() {
   if (radioType.value === 'default') {
-    emit('refresh', '/ui/favicon.ico')
+    emit('refresh', '/ui/favicon.jpg')
     dialogVisible.value = false
   } else if (radioType.value === 'custom' && iconFile.value) {
     let fd = new FormData()

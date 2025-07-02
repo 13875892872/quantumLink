@@ -499,15 +499,22 @@ onMounted(() => {
 /* 工作流卡片（黄色背景） */
 .workflow-card {
   background: url('@/assets/homeicons/appliction-gj.png') no-repeat right bottom;
-  background-size: 390px,100px;
+  background-size: 400px,150px;
+  background-position: 10% 10%; /* 自定义位置（右下方偏上） */
+  min-height: 130px; /* 确保卡片足够高，避免图片被裁剪 */
+  min-width: 400px; /* 确保卡片足够高，避免图片被裁剪 */
+  padding: 20px; /* 防止内容覆盖图片 */
 }
 
 /* 简单卡片（蓝色背景） */
 .simple-card {
   background:
     url('@/assets/homeicons/appliction-pt.png') no-repeat right bottom;
-  background-size: 390px,100px;
+  background-size: 400px,150px;
   background-position: 10% 10%; /* 自定义位置（右下方偏上） */
+  min-height: 130px; /* 确保卡片足够高，避免图片被裁剪 */
+  min-width: 400px; /* 确保卡片足够高，避免图片被裁剪 */
+  padding: 20px; /* 防止内容覆盖图片 */
   //background-size: contain;
 }
 

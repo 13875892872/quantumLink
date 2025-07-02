@@ -26,7 +26,7 @@ class StaticHeadersMiddleware(MiddlewareMixin):
                     response[
                         'Content-Security-Policy'] = f'frame-ancestors {" ".join(white_list)}'
                 response.content = (response.content.decode('utf-8').replace(
-                    '<link rel="icon" href="/ui/favicon.ico" />',
+                    '<link rel="icon" href="/ui/favicon.jpg" />',
                     f'<link rel="icon" href="{application_icon}" />')
                 .replace('<title>MaxKB</title>', f'<title>{application_name}</title>').encode(
                     "utf-8"))

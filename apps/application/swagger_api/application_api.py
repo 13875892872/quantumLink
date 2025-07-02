@@ -199,7 +199,7 @@ class ApplicationApi(ApiMixin):
                                                            description=_("Whether to enable problem optimization"),
                                                            default=True),
                     'icon': openapi.Schema(type=openapi.TYPE_STRING, title="icon",
-                                           description="icon", default="/ui/favicon.ico"),
+                                           description="icon", default="/ui/favicon.jpg"),
                     'type': openapi.Schema(type=openapi.TYPE_STRING, title=_("Application Type"),
                                            description=_("Application Type   SIMPLE |  WORK_FLOW")),
                     'work_flow': ApplicationApi.WorkFlow.get_request_body_api(),

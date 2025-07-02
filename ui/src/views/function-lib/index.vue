@@ -249,7 +249,7 @@
               <div class="status-button"></div>
               <template #footer>
                 <div class="footer-content flex-between">
-                  <div>{{ $t('common.author') }}: MaxKB</div>
+                  <div>{{ $t('common.author') }}: admin</div>
                   <div @click.stop>
                     <el-button type="primary" link @click="addInternalFunction(item)">
                       {{ $t('common.add') }}

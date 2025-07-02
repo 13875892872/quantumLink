@@ -1,13 +1,21 @@
 <template>
   <div class="app-container">
-
+<!--    <img
+      src="@/assets/customerHome/home-tb.png"
+      class="bg-image home-tb"
+      @click="router.push('/customerLogin')"
+    />
+    <img
+      src="@/assets/customerHome/home-jx.png"
+      class="bg-image home-jx"
+    />-->
      <div class="menu-center-container">
        <div style="width: 90%">
           <el-menu
             mode="horizontal"
             :default-active="activeIndex"
             @select="handleSelect"
-            style="width: 20%;height: 100%; margin-left: 45%"
+            style="width: 30%;height: 100%; margin-left: 45%"
             class="custom-menu"
           >
             <el-menu-item index="1">工作台</el-menu-item>
@@ -304,14 +312,14 @@ const handleSelect = (index: string) => {
 
     background-position:
       //  center center, /* 图2右上角偏移 */
-        right 1420px top 10px, /* 图2右上角偏移 */
+        right 94% top 50%, /* 图2右上角偏移 */
         center center; /* 图1居中 */
 
 
     /* 分别控制每张图的尺寸 */
     background-size:
       // 423px 510px,   /* 图2宽度100px */
-       150px 40px,  /* 图2宽度100px */
+       10% 70%,  /* 图2宽度100px */
        cover;
 
 
@@ -319,6 +327,44 @@ const handleSelect = (index: string) => {
       // contain;        /* 图3完整显示 */
       background-repeat: no-repeat
 }
+/* 外层容器背景图片 */
+/*.menu-center-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 7%;
+  background-color: #d6e2ff;
+  position: relative; !* 为了让子元素绝对定位 *!
+  overflow: hidden; !* 防止图片溢出 *!
+}
+
+.bg-image {
+  position: absolute;
+  cursor: pointer;
+}
+
+.home-tb {
+  right: 85%;
+  top: 4%;
+  transform: translateY(-50%);
+  width: 9.5%;
+  height: 70%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.home-jx {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}*/
+/* 外层容器背景图片结束 */
+
+
 /* 菜单样式（半透明背景 + 白色文字） */
 .custom-menu {
   width: 300px;
