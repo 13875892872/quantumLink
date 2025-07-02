@@ -126,7 +126,7 @@ const loginImage = computed(() => {
     /* 分别控制每张图的尺寸 */
     background-size:
      //  423px 510px,   /* 图2宽度100px */
-       490px 400px,   /* 图2宽度100px */
+       500px 350px,   /* 图2宽度100px */
        cover;
 
 
