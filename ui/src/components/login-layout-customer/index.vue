@@ -119,14 +119,14 @@ const loginImage = computed(() => {
 
     background-position:
        // right 230px top 170px, /* 图2右上角偏移 */
-        right 800px top 280px, /* 图2右上角偏移 */
+        right 800px top 220px, /* 图2右上角偏移 */
         center center; /* 图1居中 */
 
 
     /* 分别控制每张图的尺寸 */
     background-size:
      //  423px 510px,   /* 图2宽度100px */
-       500px 300px,   /* 图2宽度100px */
+       490px 400px,   /* 图2宽度100px */
        cover;
 
 

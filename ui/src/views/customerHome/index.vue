@@ -24,8 +24,8 @@
     style="position: absolute; right : 52.5% ;top : 32%;width: 19%; height: 19%; " ></div>
     <div style="transform: translateX(10%); margin-top: 19%">
       <div style="width: 50%; height: 50%">
-        <div style="font-size: 20px;font-weight: bold"> 智能公文写作</div>
-        <div style="font-size: 10px"> 智能公文辅助写作平台</div>
+        <div style="font-size: 20px;font-weight: bold"> 锡有智文</div>
+        <div style="font-size: 10px"> 锡有智文辅助写作平台</div>
       </div>
     </div>
     <div style="transform: translateX(30%); margin-top: -3%">
@@ -304,14 +304,14 @@ const handleSelect = (index: string) => {
 
     background-position:
       //  center center, /* 图2右上角偏移 */
-        right 94% top 50%, /* 图2右上角偏移 */
+        right 1420px top 10px, /* 图2右上角偏移 */
         center center; /* 图1居中 */
 
 
     /* 分别控制每张图的尺寸 */
     background-size:
       // 423px 510px,   /* 图2宽度100px */
-       8% 70%,  /* 图2宽度100px */
+       150px 40px,  /* 图2宽度100px */
        cover;
 
 
