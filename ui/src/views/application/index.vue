@@ -499,9 +499,9 @@ onMounted(() => {
 /* 工作流卡片（黄色背景） */
 .workflow-card {
   background: url('@/assets/homeicons/appliction-gj.png') no-repeat right bottom;
-  background-size:  23vw 100%;
+  background-size:  23.5vw 100%;
   background-position: 0% 10%; /* 自定义位置（右下方偏上） */
-  min-height: 130px; /* 确保卡片足够高，避免图片被裁剪 */
+  min-height: 160px; /* 确保卡片足够高，避免图片被裁剪 */
   min-width: 400px; /* 确保卡片足够高，避免图片被裁剪 */
   padding: 20px; /* 防止内容覆盖图片 */
 }
@@ -510,9 +510,9 @@ onMounted(() => {
 .simple-card {
   background:
     url('@/assets/homeicons/appliction-pt.png') no-repeat right bottom;
-  background-size: 23vw 100%;
+  background-size: 23.5vw 100%;
   background-position: 0% 0%; /* 自定义位置（右下方偏上） */
-  min-height: 130px; /* 确保卡片足够高，避免图片被裁剪 */
+  min-height: 160px; /* 确保卡片足够高，避免图片被裁剪 */
   min-width: 400px; /* 确保卡片足够高，避免图片被裁剪 */
   padding: 20px; /* 防止内容覆盖图片 */
   //background-size: contain;
