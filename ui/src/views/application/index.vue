@@ -430,6 +430,15 @@ function getUserList() {
 }
 
 function  triggerUpload() {
+   debugger
+    console.log("VITE_APP_NUMBER:" + import.meta.env.VITE_APP_NUMBER)
+    console.log("applicationList._rawValue.length:" + applicationList._rawValue.length)
+    const maxLimit = Number(import.meta.env.VITE_APP_NUMBER);
+   if ( applicationList._rawValue.length>= maxLimit) {
+        ElMessage.error(`应用数量已达上限（最多 ${maxLimit} 个）`);
+        return;
+   }
+
   if (elUploadRef.value) {
     console.log(elUploadRef.value); // 检查是否有 handleClick 方法
     if (elUploadRef.value.handleClick) {
