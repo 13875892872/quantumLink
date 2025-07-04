@@ -207,6 +207,9 @@ import { isWorkFlow } from '@/utils/application'
 import { ValidType, ValidCount } from '@/enums/common'
 import { t } from '@/locales'
 import useStore from '@/stores'
+import { ElMessage } from 'element-plus';
+
+
 
 const elUploadRef = ref<any>()
 const { application, user, common } = useStore()
@@ -290,6 +293,14 @@ const importApplication = (file: any) => {
 }
 
 function openCreateDialog() {
+  debugger
+  console.log("VITE_APP_NUMBER:" + import.meta.env.VITE_APP_NUMBER)
+  console.log("applicationList._rawValue.length:" + applicationList._rawValue.length)
+  const maxLimit = Number(import.meta.env.VITE_APP_NUMBER);
+ if ( applicationList._rawValue.length>= maxLimit) {
+      ElMessage.error(`应用数量已达上限（最多 ${maxLimit} 个）`);
+      return;
+ }
   common
     .asyncGetValid(ValidType.Application, ValidCount.Application, loading)
     .then(async (res: any) => {

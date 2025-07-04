@@ -28,20 +28,20 @@
     </div>
     <div  @click="jumpAi()" class="jump-link"
     style="position: absolute; right : 72.5% ;top : 32%;width: 19%; height: 19%; "></div>
-<!-- 先去掉    <div  @click="jumpHome()" class="jump-link"
-    style="position: absolute; right : 52.5% ;top : 32%;width: 19%; height: 19%; " ></div>-->
+    <div  @click="jumpHome()" class="jump-link"
+    style="position: absolute; right : 52.5% ;top : 32%;width: 19%; height: 19%; " ></div>
     <div style="transform: translateX(10%); margin-top: 19%">
       <div style="width: 50%; height: 50%">
         <div style="font-size: 20px;font-weight: bold"> 锡有智文</div>
         <div style="font-size: 10px"> 锡有智文辅助写作平台</div>
       </div>
     </div>
-<!-- 先去掉   <div style="transform: translateX(30%); margin-top: -3%">
+   <div style="transform: translateX(30%); margin-top: -3%">
       <div style="width: 50%; height: 50%;">
         <div style="font-size: 20px;font-weight: bold"> 知识库</div>
         <div style="font-size: 10px"> 智能知识库</div>
       </div>
-    </div>-->
+    </div>
 
   </div>
 </template>
@@ -406,25 +406,25 @@ const handleSelect = (index: string) => {
   width: 100%;
   height: 100%;
   background-image:
-      // 先去掉 url('@/assets/customerHome/home-link2.png'),
+       url('@/assets/customerHome/home-link2.png'),
        url('@/assets/customerHome/home-link1.png'),
-      // 先去掉 url('@/assets/customerHome/home-link.png'),
+       url('@/assets/customerHome/home-link.png'),
        url('@/assets/customerHome/home-link.png'),
        url('@/assets/customerHome/home-jxbig.png'),
        url('@/assets/customerHome/home-welcome.png'),
        url('@/assets/customerHome/home.png');
   background-position:
-    //  先去掉  right 69% top 38%, /* 图2右上角偏移 */
+        right 69% top 38%, /* 图2右上角偏移 */
         right 90% top 37%, /* 图2右上角偏移 */
-       // 先去掉 right 65% top 40%, /* 图2右上角偏移 */
+        right 65% top 40%, /* 图2右上角偏移 */
         right 90% top 40%, /* 图2右上角偏移 */
         right 60% top 110%, /* 图2右上角偏移 */
         right 60% top 8%, /* 图2右上角偏移 */
         center center; /* 图1居中 */
   background-size:
-     // 先去掉  4% 8%,  /* 图2宽度100px */
        4% 8%,  /* 图2宽度100px */
-      // 先去掉 20% 20%,  /* 图2宽度100px */
+       4% 8%,  /* 图2宽度100px */
+       20% 20%,  /* 图2宽度100px */
        20% 20%,  /* 图2宽度100px */
        90% 80%,  /* 图2宽度100px */
        90% 20%,  /* 图2宽度100px */

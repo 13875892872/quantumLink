@@ -3,6 +3,7 @@
   "version": "v1.0.0",
   "private": true,
   "scripts": {
+    "type": "module",
     "dev": "vite",
     "build": "set NODE_OPTIONS=--max_old_space_size=4096 && run-p type-check build-only",
     "preview": "vite preview",
