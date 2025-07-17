@@ -91,6 +91,7 @@ function subHoveredEnter() {
     line-height: 22px;
     font-weight: 400;
     .content {
+      width: 80%;
       display: -webkit-box;
       height: var(--app-card-box-description-height, 40px);
       -webkit-box-orient: vertical;
