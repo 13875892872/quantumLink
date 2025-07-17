@@ -295,9 +295,9 @@ const importApplication = (file: any) => {
 function openCreateDialog() {
   debugger
   console.log("VITE_APP_NUMBER:" + import.meta.env.VITE_APP_NUMBER)
-  console.log("applicationList._rawValue.length:" + applicationList._rawValue.length)
+  console.log("applicationList.value.length:" + applicationList.value.length)
   const maxLimit = Number(import.meta.env.VITE_APP_NUMBER);
- if ( applicationList._rawValue.length>= maxLimit) {
+ if ( applicationList.value.length>= maxLimit) {
       ElMessage.error(`应用数量已达上限（最多 ${maxLimit} 个）`);
       return;
  }
@@ -432,9 +432,9 @@ function getUserList() {
 function  triggerUpload() {
    debugger
     console.log("VITE_APP_NUMBER:" + import.meta.env.VITE_APP_NUMBER)
-    console.log("applicationList._rawValue.length:" + applicationList._rawValue.length)
+    console.log("applicationList.value.length:" + applicationList.value.length)
     const maxLimit = Number(import.meta.env.VITE_APP_NUMBER);
-   if ( applicationList._rawValue.length>= maxLimit) {
+   if ( applicationList.value.length>= maxLimit) {
         ElMessage.error(`应用数量已达上限（最多 ${maxLimit} 个）`);
         return;
    }
